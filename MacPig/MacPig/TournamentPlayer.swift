@@ -24,7 +24,7 @@ class TournamentPlayer {
     }
     
     
-    func resetStats() {
+    func resetGameStats() {
         wins = 0;
         losses = 0;
     }

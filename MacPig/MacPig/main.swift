@@ -8,10 +8,8 @@
 
 import Foundation
 
-print("Pig death match!")
+print("Pig death match!\n\n")
 
-let p1 = PlayerHoldFixed()
-let p2 = PlayerRandom()
 
 
 let statusUpdate = CommandLineStatusUpdate(verbosity: .High)
@@ -20,7 +18,7 @@ GameManager.instance.statusUpdate = statusUpdate
 
 TournamentManager.instance.statusUpdate = statusUpdate
 
-TournamentManager.instance.addPlayer(player: p1)
-TournamentManager.instance.addPlayer(player: p2)
+TournamentManager.instance.addPlayer(player: PlayerHoldFixed())
+TournamentManager.instance.addPlayer(player: PlayerRandom())
 
-TournamentManager.instance.playRoundRobin(1)
+TournamentManager.instance.playRoundRobin(10)

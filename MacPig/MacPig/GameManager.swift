@@ -8,10 +8,14 @@
 
 import Foundation
 
-
+/**
+ * Facilitates one game of pig between two players.
+ */
 class GameManager {
     
     static let instance = GameManager()
+    
+    //All output from the GameManager is raised as calls to this update interface.
     var statusUpdate: GameStatusUpdateProtocol?
     
     var goalScore = 100
@@ -19,10 +23,20 @@ class GameManager {
 
     let PIGOUT = 1
     
+    
+    /**
+     * Private constructor to enfore the singleton pattern
+     */
     private init() { }
     
     
-    
+    /**
+     Plays a game between two supplied players.
+     
+     - Parameter
+        - player1: first player
+        - player2: second player
+     */
     func playGameWithPlayer1(_ player1: PlayerProtocol, andPlayer2 player2: PlayerProtocol) -> PlayerProtocol {
         
         let p1 = ActivePlayer(player: player1, goalScore: goalScore)

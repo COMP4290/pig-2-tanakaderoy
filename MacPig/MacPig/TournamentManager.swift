@@ -30,13 +30,14 @@ class TournamentManager {
 
     
     
+    /**
+     */
     func playRoundRobin(_ rounds: Int) {
     
         for p1 in 0..<players.count {
             for p2 in p1+1..<players.count {
                 
-                resetStats()
-                
+                resetGameStats()
                 playMatchWithPlayer1(players[p1], andPlayer2: players[p2], forNumberOfGames: rounds)
             }
         }
@@ -46,16 +47,20 @@ class TournamentManager {
     
     
     
-    func resetStats() {
+    /**
+     Ressets the game stats for all players.
+     Note - the tournament stats are not reset.
+     */
+    private func resetGameStats() {
         
         for player in players {
-            player.resetStats()
+            player.resetGameStats()
         }
     }
     
     
     
-    func playMatchWithPlayer1(_ tournamentPlayer1: TournamentPlayer, andPlayer2 tournamentPlayer2: TournamentPlayer, forNumberOfGames gameCount: Int) {
+    private func playMatchWithPlayer1(_ tournamentPlayer1: TournamentPlayer, andPlayer2 tournamentPlayer2: TournamentPlayer, forNumberOfGames gameCount: Int) {
     
         guard let player1 = tournamentPlayer1.player, let player2 = tournamentPlayer2.player else {
             assertionFailure("Tried to access a nil player in a tournament player.  This should never happen")

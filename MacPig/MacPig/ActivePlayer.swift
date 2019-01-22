@@ -9,7 +9,11 @@
 import Foundation
 
 
-
+/**
+ * Wrapper to hold a player and the players stats for one game.  Use in GameManager.
+ * Kept seperate from the PlayerInterface becaseu we don't want the player implementations
+ * to have access to these vars (people would cheat!).
+ */
 class ActivePlayer {
     
     var player: PlayerProtocol
@@ -38,10 +42,12 @@ class ActivePlayer {
         turnTotal = 0
     }
     
+
     
     func pigOut() {
         turnTotal = 0
     }
+    
     
     
     func isWinner() -> Bool {
