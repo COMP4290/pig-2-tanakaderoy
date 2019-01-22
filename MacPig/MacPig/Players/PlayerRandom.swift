@@ -17,8 +17,13 @@ class PlayerRandom: PlayerProtocol {
         
         return (Int.random(in: 1...2) == 1)
     }
-    
-    
-    
-
 }
+
+
+extension PlayerRandom: CustomStringConvertible {
+    
+    var description: String {
+        return "Randomize It"
+    }
+    
+} // end extension
