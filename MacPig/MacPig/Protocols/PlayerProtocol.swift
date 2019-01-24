@@ -20,6 +20,7 @@ protocol PlayerProtocol {
        - currentTotal: The player total score NOT counting this turn's total
        - opponentTotal: The opponents total score
      */
+    
     func willPlayToTotalOf(_ goal: Int, withTurnScoreOf turnScore: Int, withPlayerTotal currentTotal: Int, againstOpponentWith opponentTotal: Int) -> Bool
     
 } // end protocol

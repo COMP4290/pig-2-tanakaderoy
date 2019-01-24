@@ -13,11 +13,12 @@ print("Pig death match!\n\n")
 
 //updates are reported via an instance of an object that implements the GameStatusUpdateProtocol
 //for this app, our implementation outputs to the command line
-TournamentManager.instance.statusUpdate = CommandLineStatusUpdate(verbosity: .High)
+TournamentManager.instance.statusUpdate = CommandLineStatusUpdate(verbosity: .Medium)
 
 //add the players
 TournamentManager.instance.addPlayer(player: PlayerHoldFixed())
 TournamentManager.instance.addPlayer(player: PlayerRandom())
+TournamentManager.instance.addPlayer(player: tanaka())
 
 //fight to the death
 //the number of rounds is a bit misleading
