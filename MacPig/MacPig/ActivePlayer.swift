@@ -10,7 +10,7 @@ import Foundation
 
 
 /**
- * Wrapper to hold a player and the players stats for one game.  Use in GameManager.
+ * Wrapper to hold a player and the players stats for one game.  Used in GameManager.
  * Kept seperate from the PlayerInterface becaseu we don't want the player implementations
  * to have access to these vars (people would cheat!).
  */

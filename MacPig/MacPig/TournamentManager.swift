@@ -13,14 +13,29 @@ class TournamentManager {
     
     static let instance = TournamentManager()
     
+    //array or tournament players
+    //note the I initialize it, this guarentees the players var will not be nil
     var players = [TournamentPlayer]()
-    var statusUpdate: GameStatusUpdateProtocol?
+
+    
+    var statusUpdate: GameStatusUpdateProtocol? {
+        //didSet is a function you can associate with a property that will get called after the property is assigned
+        //it is handy in this case because I want the GameManager to use the same statusUpdate object as the tournament manager
+        //using this function guarentees I keep them both in synch
+        didSet {
+            GameManager.instance.statusUpdate = statusUpdate
+        }
+    }
     
     
+    //private constructor prevents anybody from creating thier own instance
     private init() {}
     
     
-    
+    /**
+     Takes a player, creates a tournament player, then add them to the list of players in the tournament
+     See the TournamentPlayer class to understand why we wrap the PlayerProtocol
+     */
     func addPlayer(player: PlayerProtocol) {
         
         let tournamentPlayer = TournamentPlayer(player: player)
@@ -31,6 +46,7 @@ class TournamentManager {
     
     
     /**
+     Everybody plays everybody else.
      */
     func playRoundRobin(_ rounds: Int) {
     

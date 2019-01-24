@@ -9,6 +9,11 @@
 import Foundation
 
 
+/**
+ Tournament player is a player and all the related stats for this player.  We "wrap" PlayerProtol
+ to prevent it from having access to the stats.  If a player did have access to thier stats they
+ could cheat and modify them.
+ */
 class TournamentPlayer {
     
     var wins = 0
